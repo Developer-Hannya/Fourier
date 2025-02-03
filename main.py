@@ -1,46 +1,34 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import math
-import scipy as sci
-import scipy.integrate as integrate
+import scipy.io
 
-'''
-x = np.random.random(100)
-print(x)
-plt.plot(x)
-plt.show()
+# Carregar o dataset BCI Competition IV 2A
+# Supondo que o arquivo .mat esteja no mesmo diretório
+data = scipy.io.loadmat('A01T.mat')
 
-def function(x):
-    return x
+# Extraindo os sinais de EEG
+eeg_data = data['data']  # Ajuste conforme a estrutura do seu arquivo .mat
 
-r = integrate.quad(function, 0, 10)
-print(r)
-plt.show()
+# Definindo parâmetros
+fs = 250  # Frequência de amostragem (ajuste conforme necessário)
+n_channels = eeg_data.shape[1]  # Número de canais de EEG
 
-'''
+# Aplicando a Transformada de Fourier em cada canal
+eeg_fft = np.fft.fft(eeg_data, axis=0)
+frequencias = np.fft.fftfreq(eeg_data.shape[0], d=1/fs)
 
-# Definindo o sinal de exemplo
-t = np.linspace(0, 1, 500)  # Intervalo de tempo de 0 a 1 segundo, com 500 pontos
-freq = 5  # Frequência do sinal em Hz
-sinal = np.sin(2 * np.pi * freq * t)  # Sinal senoidal
-
-# Aplicando a Transformada de Fourier
-sinal_fft = np.fft.fft(sinal)
-frequencias = np.fft.fftfreq(len(sinal), d=t[1] - t[0])
-
-# Plotando o sinal original
+# Plotando os resultados para o primeiro canal
 plt.figure(figsize=(12, 6))
 
 plt.subplot(2, 1, 1)
-plt.plot(t, sinal)
-plt.title('Sinal Original')
-plt.xlabel('Tempo (s)')
+plt.plot(eeg_data[:, 0])
+plt.title('Sinal de EEG Original (Canal 1)')
+plt.xlabel('Amostras')
 plt.ylabel('Amplitude')
 
-# Plotando a Transformada de Fourier
 plt.subplot(2, 1, 2)
-plt.plot(frequencias, np.abs(sinal_fft))
-plt.title('Transformada de Fourier')
+plt.plot(frequencias, np.abs(eeg_fft[:, 0]))
+plt.title('Transformada de Fourier (Canal 1)')
 plt.xlabel('Frequência (Hz)')
 plt.ylabel('Magnitude')
 

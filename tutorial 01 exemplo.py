@@ -7,7 +7,7 @@ from bciflow.modules.tf.bandpass.chebyshevII import chebyshevII
 from bciflow.modules.fe import logpower
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as lda
 
-# tutorial 01
+# tutorial 01 exemplo
 
 from bciflow.datasets.cbcic import cbcic
 

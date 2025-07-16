@@ -1,0 +1,10 @@
+EEG signals shape: (120, 1, 12, 4096)
+Labels: [0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0
+ 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0]
+Class dictionary: {'left-hand': 0, 'right-hand': 1}
+Events: {'get_start': [0, 3], 'beep_sound': [2], 'cue': [3, 8], 'task_exec': [3, 8]}
+Channel names: ['F3' 'FC3' 'C3' 'CP3' 'P3' 'FCz' 'CPz' 'F4' 'FC4' 'C4' 'CP4' 'P4']
+Sampling frequency (Hz): 512.0
+Start time (s): 0.0

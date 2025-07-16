@@ -1,0 +1,2 @@
+[{'fold': 1, 'accuracy': 0.85}, {'fold': 2, 'accuracy': 0.88}]
+Accuracy: 0.8650
